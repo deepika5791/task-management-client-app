@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background: linear-gradient(135deg, #eef1f5, #dce3ea);
+  min-height: 100vh;
+  color: #333;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.dark-mode body {
+  background: linear-gradient(135deg, #121212, #1b1b1b);
+  color: #f1f1f1;
+}
+
+.content-wrapper {
+  max-width: 2000px;
+  height: 80vh;
+  margin: 100px auto 60px;
+  padding: 40px 50px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease-in-out;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.dark-mode .content-wrapper {
+  background: #262626;
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.04),
+    0 0 35px rgba(130, 130, 130, 0.12), inset 0 0 8px rgba(255, 255, 255, 0.02);
+}
+
+.main-container {
+  background: transparent;
+  min-height: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mode-toggler-btn {
+  position: fixed;
+  top: 15px;
+  right: 260px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #596aff, #8f77ff);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(89, 106, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.mode-toggler-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(89, 106, 255, 0.4);
+}
+
+.dark-mode .board-top,
+.dark-mode .task-creator,
+.dark-mode .column {
+  background: #2f2f2f !important;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05),
+    0 0 25px rgba(140, 140, 140, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode .column-header {
+  color: white;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+  background-color: #3b3b3b;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+p,
+button,
+input,
+textarea {
+  font-size: 1rem;
+}

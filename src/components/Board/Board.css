@@ -1,0 +1,74 @@
+.board-card {
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  border-radius: 12px;
+  padding: 16px;
+  width: 600px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 20px rgba(11, 18, 34, 0.04);
+  margin-top: 40px;
+}
+.board-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  color: black;
+}
+.board-title {
+  font-size: 30px;
+  padding: 20px;
+  font-weight: 700;
+  color: #0b233f;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.board-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.progress-track {
+  width: 120px;
+  height: 8px;
+  background: #eef3fb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6c63ff, #5aa1f0);
+  transition: width 0.4s ease;
+}
+.progress-label {
+  font-weight: 700;
+  font-size: 12px;
+  color: #2b3a55;
+}
+.board-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.btn {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn.edit {
+  background: #fff7e6;
+  color: #a56b00;
+}
+.btn.del {
+  background: #ffeef0;
+  color: #c53030;
+}

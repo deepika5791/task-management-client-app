@@ -1,0 +1,62 @@
+import React, { useState, useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import API from "../../api";
+import { AuthContext } from "../../context/AuthProvider";
+import "./Signup.css";
+
+const Signup = () => {
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const navigate = useNavigate();
+  const { loginUser } = useContext(AuthContext);
+
+  const handleform = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await API.post("/auth/signup", form);
+    
+      loginUser(res.data, res.data.token);
+      navigate("/login");
+    } catch (err) {
+      alert(err.response?.data?.message || "Signup failed");
+    }
+  };
+
+  return (
+    <div className="auth-page">
+      <div className="auth-card">
+        <h2>Create account</h2>
+        <p className="muted">Start managing tasks — free and fast.</p>
+
+        <form onSubmit={handleform} className="auth-form">
+          <input
+            type="text"
+            placeholder="Full name"
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            value={form.name}
+          />
+          <input
+            type="email"
+            placeholder="Email address"
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            value={form.email}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
+            value={form.password}
+          />
+          <button className="primary" type="submit">
+            Create account
+          </button>
+        </form>
+
+        <p className="small">
+          Already have an account? <NavLink to="/login">Login</NavLink>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;
