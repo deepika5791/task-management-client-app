@@ -55,12 +55,12 @@ body {
 .mode-toggler-btn {
   position: fixed;
   top: 15px;
-  right: 260px;
+  right: 300px;
   padding: 10px 20px;
   border: none;
   border-radius: 30px;
   background: linear-gradient(135deg, #596aff, #8f77ff);
-  color: #fff;
+  color: #181111;
   font-weight: 500;
   cursor: pointer;
   z-index: 1000;
