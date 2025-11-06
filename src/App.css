@@ -13,17 +13,6 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* .content-wrapper {
-  max-width: 2000px;
-  height: 80vh;
-  margin: 100px auto 60px;
-  padding: 40px 50px;
-  border-radius: 20px;
-  background: #ffffff;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease-in-out;
-  animation: fadeIn 0.4s ease-in-out;
-} */
 .content-wrapper {
   max-width: 1300px;
   margin: 90px auto;
