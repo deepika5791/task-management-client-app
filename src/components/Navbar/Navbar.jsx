@@ -17,7 +17,9 @@ const Navbar = () => {
     <header className="topbar">
       <div className="topbar-left">
         <div className="brand">
-          Task<span className="accent">Flow</span>
+          <NavLink to="/">
+            Task<span className="accent">Flow</span>
+          </NavLink>
         </div>
         <nav className="workspace-switch">
           <NavLink to="/home" className="link" style={{ color: "white" }}>
@@ -51,9 +53,11 @@ const Navbar = () => {
                 </div>
                 <div className="menu-item small">{user.email}</div>
                 <div className="menu-divider" />
-                <button className="menu-item danger" onClick={handleLogout}>
-                  Logout
-                </button>
+                <NavLink to="/">
+                  <button className="menu-item danger" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </NavLink>
               </div>
             )}
           </div>
