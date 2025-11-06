@@ -1,4 +1,4 @@
-.board-card {
+/* .board-card {
   background: linear-gradient(180deg, #ffffff, #fbfdff);
   border-radius: 12px;
   padding: 16px;
@@ -71,4 +71,89 @@
 .btn.del {
   background: #ffeef0;
   color: #c53030;
+} */
+.board-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  width: 600px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 40px auto;
+  border: 1px solid #eef1f6;
+}
+
+
+.board-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+
+.board-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 10px 0;
+}
+
+
+.board-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b233f;
+  margin: 8px 0 4px;
+  text-align: center;
+}
+
+
+.board-link span {
+  display: block;
+  font-size: 13px;
+  color: #7a8ba0;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+
+.board-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+
+.btn.edit {
+  background: #fff5d8;
+  color: #a06b00;
+}
+
+.btn.edit:hover {
+  background: #ffeab0;
+  transform: translateY(-2px);
+}
+
+.btn.del {
+  background: #ffe7e8;
+  color: #c53030;
+}
+
+.btn.del:hover {
+  background: #ffc9cc;
+  transform: translateY(-2px);
 }
