@@ -1,0 +1,28 @@
+
+.footer {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;     
+  min-height: 100vh;      
+  color: white;            
+  background-color: #121212; 
+  padding: 20px;
+}
+
+.footer p, 
+.footer h1, 
+.footer span {
+  margin: 5px 0;
+}
+
+.footer .social-icons {
+  margin-top: 10px;
+}
+
+.footer .social-icons a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}

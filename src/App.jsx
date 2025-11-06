@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import FrontPage from "./pages/frontPage/FrontPage";
 import Login from "./pages/LoginPage/Login";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   const location = useLocation();
@@ -27,6 +28,7 @@ const App = () => {
           </Routes>
         </main>
       </div>
+      <Footer />
     </div>
   );
 };
