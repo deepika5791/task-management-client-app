@@ -13,9 +13,9 @@ const Signup = () => {
     e.preventDefault();
     try {
       const res = await API.post("/auth/signup", form);
-    
+
       loginUser(res.data, res.data.token);
-      navigate("/login");
+      navigate("/home");
     } catch (err) {
       alert(err.response?.data?.message || "Signup failed");
     }
