@@ -2,8 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1400px;
   padding: 60px 80px;
-  min-height: 90vh;
+  min-height: 80vh;
   gap: 40px;
 }
 
