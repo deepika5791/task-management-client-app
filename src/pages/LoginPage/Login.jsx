@@ -22,9 +22,8 @@ const Login = () => {
 
   return (
     <div className="auth-container">
- 
       <div className="auth-left">
-        <h1>Your Project Name</h1>
+        <h1>Task Manager</h1>
         <p>Manage your tasks, stay organized, and boost productivity.</p>
       </div>
 
