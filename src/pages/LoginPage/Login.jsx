@@ -30,7 +30,7 @@ const Login = () => {
       <div className="auth-right">
         <div className="auth-card">
           <h2>Welcome back</h2>
-          <p className="muted">Sign in to continue.</p>
+          <p className="muted">Login in to continue.</p>
 
           <form onSubmit={handleform} className="auth-form">
             <input
