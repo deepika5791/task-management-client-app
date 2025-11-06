@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { WorkList } from "../../assets/task-list.svg";
 import "./FrontPage.css";
 
 const FrontPage = () => {
@@ -25,8 +26,9 @@ const FrontPage = () => {
 
       <div className="hero-right">
         <img
-          src={require("../../assets/task-list-svg")}
+          src={WorkList}
           alt="Task Management Illustration"
+          className="hero-image"
         />
       </div>
     </div>
