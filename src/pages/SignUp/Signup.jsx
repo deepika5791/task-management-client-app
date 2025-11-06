@@ -14,7 +14,7 @@ const Signup = () => {
     try {
       const res = await API.post("/auth/signup", form);
 
-      loginUser(res.data, res.data.token);
+      loginUser(res.data.user, res.data.token);
       navigate("/home");
     } catch (err) {
       alert(err.response?.data?.message || "Signup failed");
