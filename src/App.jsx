@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import Login from "./pages/LoginPage/Login";
 import Home from "./pages/Home/Home";
 import BoardPage from "./pages/BoardPage/BoardPage";
 import Signup from "./pages/SignUp/Signup";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
+import FrontPage from "./pages/frontPage/FrontPage";
+import Login from "./pages/LoginPage/Login";
 
 const App = () => {
   const location = useLocation();
@@ -18,9 +19,9 @@ const App = () => {
       <div className={!hideNavbar ? "content-wrapper" : ""}>
         <main className="main-container">
           <Routes>
-            <Route path="/" element={<Navigate to="/signup" />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<FrontPage />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/board/:id" element={<BoardPage />} />
           </Routes>
