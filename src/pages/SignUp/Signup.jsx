@@ -13,7 +13,6 @@ const Signup = () => {
     e.preventDefault();
     try {
       const res = await API.post("/auth/signup", form);
-
       loginUser(res.data.user, res.data.token);
       navigate("/home");
     } catch (err) {
@@ -22,38 +21,46 @@ const Signup = () => {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        <h2>Create account</h2>
-        <p className="muted">Start managing tasks — free and fast.</p>
+    <div className="auth-container">
 
-        <form onSubmit={handleform} className="auth-form">
-          <input
-            type="text"
-            placeholder="Full name"
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            value={form.name}
-          />
-          <input
-            type="email"
-            placeholder="Email address"
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            value={form.email}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-            value={form.password}
-          />
-          <button className="primary" type="submit">
-            Create account
-          </button>
-        </form>
+      <div className="auth-left">
+        <h1>Task Manager</h1>
+        <p>Create your account and start organizing your work.</p>
+      </div>
 
-        <p className="small">
-          Already have an account? <NavLink to="/login">Login</NavLink>
-        </p>
+      <div className="auth-right">
+        <div className="auth-card">
+          <h2>Create account</h2>
+          <p className="muted">Start managing tasks — free and fast.</p>
+
+          <form onSubmit={handleform} className="auth-form">
+            <input
+              type="text"
+              placeholder="Full name"
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              value={form.name}
+            />
+            <input
+              type="email"
+              placeholder="Email address"
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              value={form.email}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              value={form.password}
+            />
+            <button className="primary" type="submit">
+              Create account
+            </button>
+          </form>
+
+          <p className="small">
+            Already have an account? <NavLink to="/login">Login</NavLink>
+          </p>
+        </div>
       </div>
     </div>
   );

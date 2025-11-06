@@ -9,7 +9,7 @@ const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleform = async (e) => { 
+  const handleform = async (e) => {
     e.preventDefault();
     try {
       const res = await API.post("/auth/login", form);
@@ -21,32 +21,40 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        <h2>Welcome back</h2>
-        <p className="muted">Sign in to continue.</p>
+    <div className="auth-container">
+ 
+      <div className="auth-left">
+        <h1>Your Project Name</h1>
+        <p>Manage your tasks, stay organized, and boost productivity.</p>
+      </div>
 
-        <form onSubmit={handleform} className="auth-form">
-          <input
-            type="email"
-            placeholder="Email address"
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            value={form.email}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-            value={form.password}
-          />
-          <button className="primary" type="submit">
-            Login
-          </button>
-        </form>
+      <div className="auth-right">
+        <div className="auth-card">
+          <h2>Welcome back</h2>
+          <p className="muted">Sign in to continue.</p>
 
-        <p className="small">
-          Don’t have an account? <NavLink to="/signup">Signup</NavLink>
-        </p>
+          <form onSubmit={handleform} className="auth-form">
+            <input
+              type="email"
+              placeholder="Email address"
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              value={form.email}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              value={form.password}
+            />
+            <button className="primary" type="submit">
+              Login
+            </button>
+          </form>
+
+          <p className="small">
+            Don’t have an account? <NavLink to="/signup">Signup</NavLink>
+          </p>
+        </div>
       </div>
     </div>
   );
