@@ -1,6 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Footer.css";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -19,8 +19,17 @@ const Footer = () => {
           <p>© 2025 TaskFlow. All rights reserved.</p>
           <div className="social-icons">
             <span>Follow Us</span>
-            <FaFacebookF />
-            <FaInstagram />
+            <NavLink to="https://www.linkedin.com/in/deepika-tripathi-5617562a1/">
+              <i class="bi bi-linkedin"></i>
+            </NavLink>
+
+            <NavLink to="">
+              <i class="bi bi-instagram"></i>
+            </NavLink>
+
+            <NavLink to="https://github.com/deepika5791?tab=repositories">
+              <i class="bi bi-github"> </i>
+            </NavLink>
           </div>
         </div>
       </div>
