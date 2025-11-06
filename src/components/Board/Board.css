@@ -32,6 +32,14 @@
   text-align: center;
 }
 
+.board-link span {
+  display: block;
+  font-size: 13px;
+  color: #7a8ba0;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
 .board-actions {
   display: flex;
   gap: 8px;
