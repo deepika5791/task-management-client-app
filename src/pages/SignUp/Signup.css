@@ -85,7 +85,10 @@ button.primary:hover {
   margin-top: 12px;
   color: #526a86;
 }
-
+.user_exist {
+  color: red;
+  font-size: 18px;
+}
 @media (max-width: 900px) {
   .auth-container {
     flex-direction: column;

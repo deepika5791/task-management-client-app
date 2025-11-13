@@ -6,6 +6,7 @@ import "./Signup.css";
 
 const Signup = () => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [error, setError] = useState("")
   const navigate = useNavigate();
   const { loginUser } = useContext(AuthContext);
 
@@ -16,7 +17,8 @@ const Signup = () => {
       loginUser(res.data.user, res.data.token);
       navigate("/home");
     } catch (err) {
-      alert(err.response?.data?.message || "Signup failed");
+      // alert(err.response?.data?.message || "Signup failed");
+      setError("user already exist")
     }
   };
 
@@ -32,7 +34,7 @@ const Signup = () => {
         <div className="auth-card">
           <h2>Create account</h2>
           <p className="muted">Start managing tasks — free and fast.</p>
-
+           
           <form onSubmit={handleform} className="auth-form">
             <input
               type="text"
@@ -52,6 +54,7 @@ const Signup = () => {
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               value={form.password}
             />
+            {error && <p className="user_exist">{error}</p>}
             <button className="primary" type="submit">
               Create account
             </button>
