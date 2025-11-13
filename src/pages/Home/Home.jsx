@@ -9,7 +9,7 @@ const Home = () => {
   const [editingId, setEditingId] = useState(null);
   const [editingName, setEditingName] = useState("");
   const [query, setQuery] = useState("");
-
+  const [err, setError] = useState("");
   const fetchBoard = async () => {
     try {
       const res = await API.get("/boards", {
@@ -23,9 +23,11 @@ const Home = () => {
     }
   };
 
+
   const createBoard = async (e) => {
     e.preventDefault();
     if (!name) return;
+    if(name) return setError("user alredy exist")
     try {
       await API.post(
         "/boards",
@@ -40,8 +42,10 @@ const Home = () => {
       fetchBoard();
     } catch (err) {
       console.error(err);
+      
     }
   };
+  
 
   const deleteBoard = async (id) => {
     if (!window.confirm("Delete this board?")) return;
@@ -118,6 +122,7 @@ const Home = () => {
       <div className="board-list">
         {filtered.map((board) => (
           <div key={board._id} className="board-wrap">
+            {err} && <p className="board_exist">{err}</p>
             {editingId === board._id ? (
               <div className="board-card editing">
                 <input
