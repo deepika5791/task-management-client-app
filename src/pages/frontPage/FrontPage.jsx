@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import  WorkList  from "../../assets/task-list.svg";
+import WorkList from "../../assets/task-list.svg";
 import "./FrontPage.css";
 
 const FrontPage = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate("/signup");
+    navigate("/board");
   };
 
   return (
