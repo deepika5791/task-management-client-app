@@ -12,11 +12,12 @@ const Home = () => {
   const [editingName, setEditingName] = useState("");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
-  const [notification, setNotification] = useState(null); // NEW
+  const [notification, setNotification] = useState(null);
+  const [confirmDelete, setConfirmDelete] = useState(null);
 
   const showNotification = (message, type = "success") => {
     setNotification({ message, type });
-    setTimeout(() => setNotification(null), 3000); // auto-hide after 3s
+    setTimeout(() => setNotification(null), 3000);
   };
 
   const fetchBoard = async () => {
@@ -61,9 +62,15 @@ const Home = () => {
     }
   };
 
-  const deleteBoard = async (id) => {
-    if (!window.confirm("Delete this board?")) return;
+  const requestDeleteBoard = (id) => {
+    setConfirmDelete(id);
+  };
 
+  const cancelDelete = () => {
+    setConfirmDelete(null);
+  };
+
+  const deleteBoard = async (id) => {
     try {
       await API.delete(`/boards/${id}`, {
         headers: {
@@ -75,6 +82,8 @@ const Home = () => {
     } catch (err) {
       console.error(err);
       showNotification("Failed to delete board", "error");
+    } finally {
+      setConfirmDelete(null);
     }
   };
 
@@ -119,16 +128,33 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* Notification */}
       {notification && (
         <div className={`notification ${notification.type}`}>
           {notification.message}
         </div>
       )}
 
+      {confirmDelete && (
+        <div className="confirm-overlay">
+          <div className="confirm-box">
+            <p>Are you sure you want to delete this board?</p>
+            <div className="confirm-actions">
+              <button
+                className="primary small"
+                onClick={() => deleteBoard(confirmDelete)}
+              >
+                Yes
+              </button>
+              <button className="muted small" onClick={cancelDelete}>
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="home-header">
         <h2>Your Boards</h2>
-
         <div className="controls">
           <input
             className="search-input"
@@ -187,7 +213,7 @@ const Home = () => {
               ) : (
                 <Board
                   board={board}
-                  onDelete={() => deleteBoard(board._id)}
+                  onDelete={() => requestDeleteBoard(board._id)}
                   onEdit={() => startEdit(board)}
                 />
               )}

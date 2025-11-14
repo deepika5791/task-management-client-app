@@ -72,10 +72,12 @@ button.primary {
   border: none;
   color: #2b3a55;
 }
+/* Top Notification */
 .notification {
   position: fixed;
   top: 20px;
-  right: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 12px 18px;
   border-radius: 8px;
   font-weight: 500;
@@ -102,4 +104,51 @@ button.primary {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Centered Delete Confirmation */
+.confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.confirm-box {
+  background: #fff;
+  padding: 24px 32px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.primary.small {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.muted.small {
+  background: #eef3fb;
+  border: none;
+  color: #2b3a55;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }
