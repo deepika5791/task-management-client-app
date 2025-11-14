@@ -20,7 +20,7 @@ const Home = () => {
     setTimeout(() => setNotification(null), 3000);
   };
 
-  const fetchBoard = async () => {
+  const fetchBoards = async () => {
     setLoading(true);
     try {
       const res = await API.get("/boards", {
@@ -57,7 +57,7 @@ const Home = () => {
         }
       );
       setName("");
-      fetchBoard();
+      fetchBoards();
       showNotification("Board created successfully", "success");
     } catch (err) {
       console.error(err);
@@ -73,7 +73,7 @@ const Home = () => {
       await API.delete(`/boards/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
-      fetchBoard();
+      fetchBoards();
       showNotification("Board deleted successfully", "success");
     } catch (err) {
       console.error(err);
@@ -103,7 +103,7 @@ const Home = () => {
       );
       setEditingId(null);
       setEditingName("");
-      fetchBoard();
+      fetchBoards();
       showNotification("Board updated successfully", "success");
     } catch (err) {
       console.error(err);
@@ -112,12 +112,15 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchBoard();
+    fetchBoards();
   }, []);
 
   const filtered = boards.filter((b) =>
     b.name.toLowerCase().includes(query.toLowerCase())
   );
+
+  // Level 1 skeleton: dynamic placeholders while fetching boards
+  const skeletonCount = Math.max(boards.length, 6);
 
   return (
     <div className="home-page">
@@ -172,9 +175,14 @@ const Home = () => {
 
       <div className="board-list">
         {loading
-          ? [1, 2, 3, 4].map((n) => (
-              <div key={n} className="board-wrap">
-                <Skeleton height={200} borderRadius={12} />
+          ? Array.from({ length: skeletonCount }).map((_, idx) => (
+              <div key={idx} className="board-wrap">
+                <Skeleton
+                  height={200}
+                  borderRadius={16}
+                  baseColor="#e0e0e0"
+                  highlightColor="#f5f5f5"
+                />
               </div>
             ))
           : filtered.map((board) => (
@@ -201,6 +209,7 @@ const Home = () => {
                     </div>
                   </div>
                 ) : (
+                  // Level 2 skeleton: per-card loading inside Board.jsx
                   <Board
                     board={board}
                     onDelete={() => requestDeleteBoard(board._id)}
