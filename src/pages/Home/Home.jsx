@@ -12,6 +12,12 @@ const Home = () => {
   const [editingName, setEditingName] = useState("");
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
+  const [notification, setNotification] = useState(null); // NEW
+
+  const showNotification = (message, type = "success") => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification(null), 3000); // auto-hide after 3s
+  };
 
   const fetchBoard = async () => {
     try {
@@ -23,6 +29,7 @@ const Home = () => {
       setBoards(res.data || []);
     } catch (err) {
       console.log(err);
+      showNotification("Failed to fetch boards", "error");
     } finally {
       setLoading(false);
     }
@@ -30,7 +37,10 @@ const Home = () => {
 
   const createBoard = async (e) => {
     e.preventDefault();
-    if (!name.trim()) return;
+    if (!name.trim()) {
+      showNotification("Board name cannot be empty", "error");
+      return;
+    }
 
     try {
       await API.post(
@@ -42,12 +52,12 @@ const Home = () => {
           },
         }
       );
-
       setName("");
       fetchBoard();
+      showNotification("Board created successfully", "success");
     } catch (err) {
       console.error("Create board error:", err);
-      alert("Something went wrong.");
+      showNotification("Failed to create board", "error");
     }
   };
 
@@ -60,10 +70,11 @@ const Home = () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-
       fetchBoard();
+      showNotification("Board deleted successfully", "success");
     } catch (err) {
       console.error(err);
+      showNotification("Failed to delete board", "error");
     }
   };
 
@@ -73,7 +84,10 @@ const Home = () => {
   };
 
   const saveEdit = async (id) => {
-    if (!editingName.trim()) return;
+    if (!editingName.trim()) {
+      showNotification("Board name cannot be empty", "error");
+      return;
+    }
 
     try {
       await API.put(
@@ -85,12 +99,13 @@ const Home = () => {
           },
         }
       );
-
       setEditingId(null);
       setEditingName("");
       fetchBoard();
+      showNotification("Board updated successfully", "success");
     } catch (err) {
       console.error(err);
+      showNotification("Failed to update board", "error");
     }
   };
 
@@ -104,6 +119,13 @@ const Home = () => {
 
   return (
     <div className="home-page">
+      {/* Notification */}
+      {notification && (
+        <div className={`notification ${notification.type}`}>
+          {notification.message}
+        </div>
+      )}
+
       <div className="home-header">
         <h2>Your Boards</h2>
 
@@ -147,7 +169,6 @@ const Home = () => {
                     value={editingName}
                     onChange={(e) => setEditingName(e.target.value)}
                   />
-
                   <div className="card-actions">
                     <button
                       onClick={() => saveEdit(board._id)}
