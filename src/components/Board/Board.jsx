@@ -23,11 +23,19 @@
 // };
 
 // export default Board;
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Board.css";
 
-const Board = ({ board, onDelete, onEdit, loading }) => {
+const Board = ({ board, onDelete, onEdit }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (board) {
+      setLoading(false);
+    }
+  }, [board]);
+
   if (loading) {
     return (
       <div className="board-card skeleton-card">
