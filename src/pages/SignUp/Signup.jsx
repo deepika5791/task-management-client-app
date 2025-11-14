@@ -6,7 +6,7 @@ import "./Signup.css";
 
 const Signup = () => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const { loginUser } = useContext(AuthContext);
 
@@ -17,14 +17,12 @@ const Signup = () => {
       loginUser(res.data.user, res.data.token);
       navigate("/home");
     } catch (err) {
-      // alert(err.response?.data?.message || "Signup failed");
-      setError("user already exist")
+      setError("user already exist");
     }
   };
 
   return (
     <div className="auth-container">
-
       <div className="auth-left">
         <h1>Task Manager</h1>
         <p>Create your account and start organizing your work.</p>
@@ -34,7 +32,7 @@ const Signup = () => {
         <div className="auth-card">
           <h2>Create account</h2>
           <p className="muted">Start managing tasks — free and fast.</p>
-           
+
           <form onSubmit={handleform} className="auth-form">
             <input
               type="text"
@@ -54,7 +52,13 @@ const Signup = () => {
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               value={form.password}
             />
-            {error && <p className="user_exist">{error}</p>}
+            {error && (
+              <div className="error-box">
+                <span className="error-icon">⚠️</span>
+                {error}
+              </div>
+            )}
+
             <button className="primary" type="submit">
               Create account
             </button>
