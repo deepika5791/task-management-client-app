@@ -3,26 +3,6 @@ import { NavLink } from "react-router-dom";
 import "./Board.css";
 
 const Board = ({ board, onDelete, onEdit }) => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (board) {
-      setLoading(false);
-    }
-  }, [board]);
-
-  if (loading) {
-    return (
-      <div className="board-card skeleton-card">
-        <div className="skeleton-title"></div>
-        <div className="skeleton-btn-area">
-          <div className="skeleton-btn"></div>
-          <div className="skeleton-btn"></div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="board-card">
       <NavLink to={`/board/${board._id}`} className="board-link">

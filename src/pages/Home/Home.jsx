@@ -21,15 +21,14 @@ const Home = () => {
   };
 
   const fetchBoard = async () => {
+    setLoading(true);
     try {
       const res = await API.get("/boards", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setBoards(res.data || []);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       showNotification("Failed to fetch boards", "error");
     } finally {
       setLoading(false);
@@ -39,51 +38,40 @@ const Home = () => {
   const createBoard = async (e) => {
     e.preventDefault();
     const trimmedName = name.trim();
-    if (!name.trim()) {
+    if (!trimmedName) {
       showNotification("Board name cannot be empty", "error");
       return;
     }
-    const exists = boards.some(
-      (b) => b.name.toLowerCase() === trimmedName.toLowerCase()
-    );
-    if (exists) {
+    if (
+      boards.some((b) => b.name.toLowerCase() === trimmedName.toLowerCase())
+    ) {
       showNotification("Board with this name already exists", "error");
       return;
     }
-
     try {
       await API.post(
         "/boards",
-        { name },
+        { name: trimmedName },
         {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setName("");
       fetchBoard();
       showNotification("Board created successfully", "success");
     } catch (err) {
-      console.error("Create board error:", err);
+      console.error(err);
       showNotification("Failed to create board", "error");
     }
   };
 
-  const requestDeleteBoard = (id) => {
-    setConfirmDelete(id);
-  };
-
-  const cancelDelete = () => {
-    setConfirmDelete(null);
-  };
+  const requestDeleteBoard = (id) => setConfirmDelete(id);
+  const cancelDelete = () => setConfirmDelete(null);
 
   const deleteBoard = async (id) => {
     try {
       await API.delete(`/boards/${id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       fetchBoard();
       showNotification("Board deleted successfully", "success");
@@ -105,15 +93,12 @@ const Home = () => {
       showNotification("Board name cannot be empty", "error");
       return;
     }
-
     try {
       await API.put(
         `/boards/${id}`,
         { name: editingName },
         {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
       setEditingId(null);
@@ -185,50 +170,46 @@ const Home = () => {
         </button>
       </form>
 
-      {loading ? (
-        <div className="board-list">
-          {[1, 2, 3, 4].map((n) => (
-            <div key={n} className="board-wrap">
-              <Skeleton height={200} borderRadius={12} />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="board-list">
-          {filtered.map((board) => (
-            <div key={board._id} className="board-wrap">
-              {editingId === board._id ? (
-                <div className="board-card editing">
-                  <input
-                    value={editingName}
-                    onChange={(e) => setEditingName(e.target.value)}
-                  />
-                  <div className="card-actions">
-                    <button
-                      onClick={() => saveEdit(board._id)}
-                      className="primary small"
-                    >
-                      Save
-                    </button>
-                    <button
-                      onClick={() => setEditingId(null)}
-                      className="muted small"
-                    >
-                      Cancel
-                    </button>
+      <div className="board-list">
+        {loading
+          ? [1, 2, 3, 4].map((n) => (
+              <div key={n} className="board-wrap">
+                <Skeleton height={200} borderRadius={12} />
+              </div>
+            ))
+          : filtered.map((board) => (
+              <div key={board._id} className="board-wrap">
+                {editingId === board._id ? (
+                  <div className="board-card editing">
+                    <input
+                      value={editingName}
+                      onChange={(e) => setEditingName(e.target.value)}
+                    />
+                    <div className="card-actions">
+                      <button
+                        onClick={() => saveEdit(board._id)}
+                        className="primary small"
+                      >
+                        Save
+                      </button>
+                      <button
+                        onClick={() => setEditingId(null)}
+                        className="muted small"
+                      >
+                        Cancel
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <Board
-                  board={board}
-                  onDelete={() => requestDeleteBoard(board._id)}
-                  onEdit={() => startEdit(board)}
-                />
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+                ) : (
+                  <Board
+                    board={board}
+                    onDelete={() => requestDeleteBoard(board._id)}
+                    onEdit={() => startEdit(board)}
+                  />
+                )}
+              </div>
+            ))}
+      </div>
     </div>
   );
 };
