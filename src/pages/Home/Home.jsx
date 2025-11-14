@@ -11,7 +11,7 @@ const Home = () => {
   const [editingId, setEditingId] = useState(null);
   const [editingName, setEditingName] = useState("");
   const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   const fetchBoard = async () => {
     try {
@@ -24,10 +24,10 @@ const Home = () => {
     } catch (err) {
       console.log(err);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
-    
+
   const createBoard = async (e) => {
     e.preventDefault();
     if (!name.trim()) return;
@@ -43,8 +43,8 @@ const Home = () => {
         }
       );
 
-      setName(""); 
-      fetchBoard(); 
+      setName("");
+      fetchBoard();
     } catch (err) {
       console.error("Create board error:", err);
       alert("Something went wrong.");
@@ -129,7 +129,6 @@ const Home = () => {
         </button>
       </form>
 
-      {/* ⭐ SKELETON LOADER */}
       {loading ? (
         <div className="board-list">
           {[1, 2, 3, 4].map((n) => (
