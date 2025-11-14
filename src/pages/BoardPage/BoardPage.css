@@ -175,7 +175,16 @@
   gap: 8px;
   justify-content: flex-end;
 }
-/* Skeleton Kanban */
+.error-message {
+  color: #ff4d4f;
+  background: #fff1f0;
+  border: 1px solid #ffa39e;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
 .skeleton-col {
   background: #f1f1f1;
   border-radius: 12px;
