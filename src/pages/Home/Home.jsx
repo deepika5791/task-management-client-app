@@ -38,6 +38,7 @@ const Home = () => {
 
   const createBoard = async (e) => {
     e.preventDefault();
+    const trimmedName = name.trim();
     if (!name.trim()) {
       showNotification("Board name cannot be empty", "error");
       return;
