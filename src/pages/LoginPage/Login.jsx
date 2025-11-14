@@ -6,17 +6,24 @@ import "./Login.css";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState(""); 
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleform = async (e) => {
     e.preventDefault();
+    setError("");
+
     try {
       const res = await API.post("/auth/login", form);
       loginUser(res.data.user, res.data.token);
       navigate("/home");
     } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
+      setError(
+        err.response?.data?.message === "User does not exist"
+          ? "User not found. Please sign up first."
+          : "Invalid email or password."
+      );
     }
   };
 
@@ -30,21 +37,27 @@ const Login = () => {
       <div className="auth-right">
         <div className="auth-card">
           <h2>Welcome back</h2>
-          <p className="muted">Login in to continue.</p>
+          <p className="muted">Login to continue.</p>
+
+          {error && (
+            <p style={{ color: "red", marginBottom: "10px" }}>{error}</p>
+          )}
 
           <form onSubmit={handleform} className="auth-form">
             <input
               type="email"
               placeholder="Email address"
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
               value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
+
             <input
               type="password"
               placeholder="Password"
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
               value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
             />
+
             <button className="primary" type="submit">
               Login
             </button>
