@@ -42,6 +42,13 @@ const Home = () => {
       showNotification("Board name cannot be empty", "error");
       return;
     }
+    const exists = boards.some(
+      (b) => b.name.toLowerCase() === trimmedName.toLowerCase()
+    );
+    if (exists) {
+      showNotification("Board with this name already exists", "error");
+      return;
+    }
 
     try {
       await API.post(
