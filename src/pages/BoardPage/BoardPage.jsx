@@ -14,6 +14,7 @@ const BoardPage = () => {
   const { id } = useParams();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const [form, setForm] = useState({
     title: "",
@@ -65,6 +66,11 @@ const BoardPage = () => {
       fetchTasks();
     } catch (err) {
       console.log(err);
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -176,6 +182,7 @@ const BoardPage = () => {
       </div>
 
       <form className="task-creator" onSubmit={createTask}>
+        {error && <div className="error-message">{error}</div>}
         <input
           type="text"
           placeholder="Task title"
