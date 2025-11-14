@@ -9,7 +9,12 @@ const AuthProvider = ({ children }) => {
     const storedUser = localStorage.getItem("user");
     const token = localStorage.getItem("token");
     if (storedUser && token) {
+      try{
       setUser(JSON.parse(storedUser));
+    }catch{
+      localStorage.clear()
+      setUser(null)
+    }
     }
   }, []);
 
