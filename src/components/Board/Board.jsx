@@ -7,7 +7,7 @@ const Board = ({ board, onDelete, onEdit }) => {
 
   useEffect(() => {
     if (board) {
-      const timer = setTimeout(() => setLoading(false), 300); // simulate loading
+      const timer = setTimeout(() => setLoading(false), 300); 
       return () => clearTimeout(timer);
     }
   }, [board]);

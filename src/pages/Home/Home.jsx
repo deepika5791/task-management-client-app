@@ -209,7 +209,7 @@ const Home = () => {
                     </div>
                   </div>
                 ) : (
-                  // Level 2 skeleton: per-card loading inside Board.jsx
+   
                   <Board
                     board={board}
                     onDelete={() => requestDeleteBoard(board._id)}
