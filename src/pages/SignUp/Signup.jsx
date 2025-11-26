@@ -12,10 +12,16 @@ const Signup = () => {
 
   const handleform = async (e) => {
     e.preventDefault();
+    
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(form.email)) {
+    setError("Invalid email format");
+    return;
+  }
     try {
       const res = await API.post("/auth/signup", form);
       loginUser(res.data.user, res.data.token);
-      navigate("/home");
+      navigate("/login");
     } catch (err) {
       setError("user already exist");
     }
@@ -59,7 +65,7 @@ const Signup = () => {
               </div>
             )}
 
-            <button className="primary" type="submit">
+            <button className="primary" type="submit" disabled={!form.email || !form.password}>
               Create account
             </button>
           </form>
