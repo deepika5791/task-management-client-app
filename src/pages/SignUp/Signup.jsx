@@ -21,7 +21,7 @@ const Signup = () => {
     try {
       const res = await API.post("/auth/signup", form);
       loginUser(res.data.user, res.data.token);
-      navigate("/home");
+      navigate("/login");
     } catch (err) {
       setError("user already exist");
     }
