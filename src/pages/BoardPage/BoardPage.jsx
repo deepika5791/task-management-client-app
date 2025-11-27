@@ -14,6 +14,7 @@ const BoardPage = () => {
   const { id } = useParams();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const [form, setForm] = useState({
     title: "",
@@ -53,7 +54,10 @@ const BoardPage = () => {
 
   const createTask = async (e) => {
     e.preventDefault();
-    if (!form.title) return;
+    if (!form.title) {
+      setError("Task title cannot be empty");
+      return;
+    }
     try {
       await API.post(`/tasks/${id}`, { ...form });
       setForm({
@@ -65,6 +69,7 @@ const BoardPage = () => {
       fetchTasks();
     } catch (err) {
       console.log(err);
+      setError("Failed to create task");
     }
   };
 
