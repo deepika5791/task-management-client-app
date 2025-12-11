@@ -17,13 +17,16 @@ const App = () => {
   return (
     <div className="app-container">
       {/* {!hideNavbar && <Navbar />} */}
-<Navbar />
+      <Navbar />
       <div className={!hideNavbar ? "content-wrapper" : ""}>
         {/* <Navbar /> */}
-      {/* <div className="content-wrapper"> */}
+        {/* <div className="content-wrapper"> */}
         <main className="main-container">
           <Routes>
-            <Route path="/" element={user ? <FrontPage /> : <GlobalLoginPage />} />
+            <Route
+              path="/"
+              element={user ? <FrontPage /> : <GlobalLoginPage />}
+            />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route
