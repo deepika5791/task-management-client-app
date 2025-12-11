@@ -8,13 +8,17 @@ const FrontPage = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  const handleGetStarted = () => {
-    if (user) {
-      navigate("/home");
-    } else {
-      setError("You are not logged in. Please login or signup first.");
-    }
-  };
+  // const handleGetStarted = () => {
+  //   if (user) {
+  //     navigate("/home");
+  //   } else {
+  //     setError("You are not logged in. Please login or signup first.");
+  //   }
+  // };
+
+   const handleGetStarted = () => {
+    navigate("/login")
+   }
 
   return (
     <div className="home-hero">
