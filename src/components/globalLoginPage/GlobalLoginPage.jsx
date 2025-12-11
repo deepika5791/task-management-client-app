@@ -1,7 +1,6 @@
 import React from "react";
 import "./GlobalLoginPage.css";
 import { NavLink } from "react-router-dom";
-import "./NotLoggedIn.css";
 
 const GlobalLoginPage = () => {
   return (
