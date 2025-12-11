@@ -8,9 +8,8 @@ import "./App.css";
 import FrontPage from "./pages/frontPage/FrontPage";
 import Login from "./pages/LoginPage/Login";
 import Footer from "./components/footer/Footer";
-import GlobalLoginPage from "./components/globalLoginPage/GlobalLoginPage";
 import { AuthContext } from "./context/AuthProvider";
-
+import GlobalLoginPage from "./components/globalLoginPage/GlobalLoginPage"
 const App = () => {
   // const location = useLocation();
   // const hideNavbar = ["/login", "/signup"].includes(location.pathname);
@@ -27,10 +26,10 @@ const App = () => {
             <Route path="/" element={<FrontPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={user ?  <Home /> : <GlobalLoginPage />}/>
             <Route
               path="/board/:id"
-              element={user ? <BoardPage /> : <GlobalLoginPage />}
+              element={<BoardPage />}
             />
           </Routes>
         </main>
