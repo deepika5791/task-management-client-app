@@ -10,14 +10,15 @@ import Login from "./pages/LoginPage/Login";
 import Footer from "./components/footer/Footer";
 
 const App = () => {
-  const location = useLocation();
-  const hideNavbar = ["/login", "/signup"].includes(location.pathname);
+  // const location = useLocation();
+  // const hideNavbar = ["/login", "/signup"].includes(location.pathname);
 
   return (
     <div className="app-container">
-      {!hideNavbar && <Navbar />}
-
-      <div className={!hideNavbar ? "content-wrapper" : ""}>
+      {/* {!hideNavbar && <Navbar />} */}
+             
+      {/* <div className={!hideNavbar ? "content-wrapper" : ""}> */}
+           <div className="content-wrapper"> 
         <main className="main-container">
           <Routes>
             <Route path="/" element={<FrontPage />} />
