@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect  , useContext} from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import BoardPage from "./pages/BoardPage/BoardPage";
