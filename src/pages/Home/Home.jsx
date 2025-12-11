@@ -30,7 +30,7 @@ const Home = () => {
       setBoards(res.data || []);
     } catch (err) {
       console.error(err);
-      showNotification("First login in to page", "error");
+      // showNotification("First login in to page", "error");
     } finally {
       setLoading(false);
     }
@@ -62,7 +62,7 @@ const Home = () => {
       showNotification("Board created successfully", "success");
     } catch (err) {
       console.error(err);
-      showNotification("First loginIn to a page", "error");
+      // showNotification("First loginIn to a page", "error");
     }
   };
 
