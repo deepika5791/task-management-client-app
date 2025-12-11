@@ -125,16 +125,12 @@ const Home = () => {
   return (
     <div className="home-page">
       {notification && (
-        <div className="all-notifications">
         <div className={`notification ${notification.type}`}>
           {notification.message}
         </div>
-        <p className="login_page">
-         <NavLink to="/login">LoginIn</NavLink>
-        </p>
-
+       
       
-        </div>
+       
       
       )}
 

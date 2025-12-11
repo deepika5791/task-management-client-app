@@ -106,8 +106,7 @@ button.primary {
   } 
 }
 
-
-.all-notifications ,.confirm-overlay {
+.confirm-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -120,7 +119,7 @@ button.primary {
   z-index: 999;
 }
 
-.notification , .confirm-box {
+.confirm-box {
   background: #fff;
   padding: 24px 32px;
   border-radius: 12px;
@@ -153,7 +152,7 @@ button.primary {
   cursor: pointer;
 }
 
-/* .notification {
+.notification {
   position: fixed;
   top: 20px;
   left: 50%;
@@ -165,7 +164,7 @@ button.primary {
   z-index: 999;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   animation: slideIn 0.3s ease;
-} */
+}
 
 .notification.success {
   background-color: #28a745; 
