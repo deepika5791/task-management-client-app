@@ -1,4 +1,4 @@
-import React, { useState, useEffect  , useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import BoardPage from "./pages/BoardPage/BoardPage";
@@ -9,7 +9,7 @@ import FrontPage from "./pages/frontPage/FrontPage";
 import Login from "./pages/LoginPage/Login";
 import Footer from "./components/footer/Footer";
 import { AuthContext } from "./context/AuthProvider";
-import GlobalLoginPage from "./components/globalLoginPage/GlobalLoginPage"
+import GlobalLoginPage from "./components/globalLoginPage/GlobalLoginPage";
 const App = () => {
   // const location = useLocation();
   // const hideNavbar = ["/login", "/signup"].includes(location.pathname);
@@ -19,18 +19,18 @@ const App = () => {
       {/* {!hideNavbar && <Navbar />} */}
 
       {/* <div className={!hideNavbar ? "content-wrapper" : ""}> */}
-      <Navbar />
       <div className="content-wrapper">
+        <Navbar />
         <main className="main-container">
           <Routes>
             <Route path="/" element={<FrontPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={user ?  <Home /> : <GlobalLoginPage />}/>
             <Route
-              path="/board/:id"
-              element={<BoardPage />}
+              path="/home"
+              element={user ? <Home /> : <GlobalLoginPage />}
             />
+            <Route path="/board/:id" element={<BoardPage />} />
           </Routes>
         </main>
       </div>
