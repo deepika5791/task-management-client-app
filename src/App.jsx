@@ -3,7 +3,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import BoardPage from "./pages/BoardPage/BoardPage";
 import Signup from "./pages/SignUp/Signup";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar"
 import "./App.css";
 import FrontPage from "./pages/frontPage/FrontPage";
 import Login from "./pages/LoginPage/Login";
@@ -18,6 +18,7 @@ const App = () => {
       {/* {!hideNavbar && <Navbar />} */}
              
       {/* <div className={!hideNavbar ? "content-wrapper" : ""}> */}
+               <Navbar />
            <div className="content-wrapper"> 
         <main className="main-container">
           <Routes>
