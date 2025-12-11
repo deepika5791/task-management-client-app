@@ -119,15 +119,22 @@ const Home = () => {
     b.name.toLowerCase().includes(query.toLowerCase())
   );
 
-  // Level 1 skeleton: dynamic placeholders while fetching boards
   const skeletonCount = Math.max(boards.length, 6);
 
   return (
     <div className="home-page">
       {notification && (
+        <div className="all-notifications">
         <div className={`notification ${notification.type}`}>
           {notification.message}
         </div>
+        <p className="login_page">
+         <NavLink to="/login">LoginIn</NavLink>
+        </p>
+
+      
+        </div>
+      
       )}
 
       {confirmDelete && (

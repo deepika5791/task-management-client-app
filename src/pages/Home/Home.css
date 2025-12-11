@@ -103,11 +103,11 @@ button.primary {
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
+  } 
 }
 
-/* Centered Delete Confirmation */
-.confirm-overlay {
+
+.all-notifications ,.confirm-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -120,7 +120,7 @@ button.primary {
   z-index: 999;
 }
 
-.confirm-box {
+.notification , .confirm-box {
   background: #fff;
   padding: 24px 32px;
   border-radius: 12px;
@@ -153,7 +153,7 @@ button.primary {
   cursor: pointer;
 }
 
-.notification {
+/* .notification {
   position: fixed;
   top: 20px;
   left: 50%;
@@ -165,7 +165,7 @@ button.primary {
   z-index: 999;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   animation: slideIn 0.3s ease;
-}
+} */
 
 .notification.success {
   background-color: #28a745; 
