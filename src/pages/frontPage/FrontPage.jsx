@@ -17,7 +17,7 @@ const FrontPage = () => {
   // };
 
    const handleGetStarted = () => {
-    navigate("/login")
+    navigate("/GlobalLoginPage")
    }
 
   return (

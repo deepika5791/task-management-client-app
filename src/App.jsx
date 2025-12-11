@@ -19,8 +19,8 @@ const App = () => {
       {/* {!hideNavbar && <Navbar />} */}
 
       {/* <div className={!hideNavbar ? "content-wrapper" : ""}> */}
-      <div className="content-wrapper">
         <Navbar />
+      <div className="content-wrapper">
         <main className="main-container">
           <Routes>
             <Route path="/" element={<FrontPage />} />
