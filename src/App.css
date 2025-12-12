@@ -94,7 +94,6 @@ input,
 textarea {
   font-size: 1rem;
 } */
-/* Reset & font */
 * {
   margin: 0;
   padding: 0;
@@ -110,7 +109,6 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Wrapper for main content */
 .content-wrapper {
   max-width: 1300px;
   margin: 90px auto;
@@ -124,9 +122,10 @@ body {
   flex-direction: column;
   transition: all 0.3s ease;
   animation: fadeIn 0.4s ease;
+  position: relative;
+  z-index: 2; /* ensures content sits above blur background */
 }
 
-/* Blur background (only behind content) */
 .blur-background {
   position: fixed;
   top: 0;
@@ -134,16 +133,9 @@ body {
   width: 100%;
   height: 100vh;
   backdrop-filter: blur(6px);
-  z-index: 0; /* behind Navbar */
+  z-index: 1; /* behind navbar but above content */
 }
 
-/* Navbar always on top */
-.navbar {
-  position: relative;
-  z-index: 10;
-}
-
-/* Not logged-in page wrapper (centered login prompt) */
 .not-logged-page {
   position: fixed;
   top: 0;
@@ -156,10 +148,10 @@ body {
   z-index: 999;
 }
 
-/* Optional wrapper blur (if you want inside certain divs) */
+/* Removed blur from navbar by not applying filter here */
 .wrapper {
-  filter: blur(3px);
   background: red;
+  /* filter removed */
 }
 
 .main-container {
@@ -167,7 +159,6 @@ body {
   min-height: 100%;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -179,7 +170,6 @@ body {
   }
 }
 
-/* Typography */
 h1 {
   font-size: 2rem;
   font-weight: 600;

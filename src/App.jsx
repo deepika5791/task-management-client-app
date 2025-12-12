@@ -87,40 +87,45 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {/* Navbar stays always on top and is NOT blurred */}
+      {/* Navbar stays on top and never blurred */}
       <Navbar />
 
       <div className={!hideNavbar ? "content-wrapper" : ""}>
         <main className="main-container">
-          {user ? (
-            <Routes>
-              <Route path="/" element={<FrontPage />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/board/:id" element={<BoardPage />} />
-              <Route
-                path="/home"
-                element={
+          <Routes>
+
+            <Route path="/" element={<FrontPage />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/board/:id" element={<BoardPage />} />
+
+            <Route
+              path="/home"
+              element={
+                user ? (
                   <div className="content-wrap">
                     <Home />
                   </div>
-                }
-              />
-            </Routes>
-          ) : (
-            <>
-              {/* Blur only the background content, Navbar remains clear */}
-              <div className="blur-background"></div>
-              <Routes>
-                <Route path="/" element={<FrontPage />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/board/:id" element={<BoardPage />} />
-                <Route path="/home" element={<GlobalLoginPage />} />
-                <Route path="/globalLoginPage" element={<GlobalLoginPage />} />
-              </Routes>
-            </>
-          )}
+                ) : (
+                  <>
+                    <div className="blur-background"></div>
+                    <GlobalLoginPage />
+                  </>
+                )
+              }
+            />
+
+            <Route
+              path="/globalLoginPage"
+              element={
+                <>
+                  <div className="blur-background"></div>
+                  <GlobalLoginPage />
+                </>
+              }
+            />
+
+          </Routes>
         </main>
       </div>
 
