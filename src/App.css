@@ -28,7 +28,7 @@ body {
   animation: fadeIn 0.4s ease;
 }
 
-.blur-background {
+/* .blur-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -48,6 +48,26 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 999;
+} */
+/* Blur only inside #main-content so navbar is not affected */
+#main-content {
+  position: relative;
+}
+
+/* Background blur overlay */
+.blur-background {
+  position: absolute;
+  inset: 0;               /* fills the parent */
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  z-index: 1;
+}
+
+/* Makes GlobalLoginPage stay above the blur */
+.not-logged-page {
+  position: relative;
+  z-index: 999 !important;
 }
 
 
