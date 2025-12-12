@@ -32,7 +32,6 @@ const App = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/board/:id" element={<BoardPage />} />
-            <Routes>
               <Route element={<UserLayout user={user} />}>
                 {/* <Route
               path="/home"
@@ -45,7 +44,6 @@ const App = () => {
                 />
                 <Route path="/globalLoginPage" element={<GlobalLoginPage />} />
               </Route>
-            </Routes>
           </Routes>
         </main>
       </div>
