@@ -40,7 +40,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  filter: blur(18px);
+  /* filter: blur(18px); */
   z-index: 1;
 }
 
