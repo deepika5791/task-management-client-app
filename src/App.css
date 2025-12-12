@@ -31,22 +31,31 @@ body {
   filter:blur(3px);
   background:red;
 } */
-.blur-effect {
+/* .blur-effect {
   position: relative;
-  filter: blur(8px);
-}
+} */
 
-.blur-effect::before {
+/* .blur-effect::before { */
+.blur-effect{
   content: "";
   position: absolute;
   inset: 0;
-  /* filter: blur(18px); */
+  filter: blur(18px);
   z-index: 1;
 }
 
 .blur-effect > * {
   position: relative;
   z-index: 2;
+}
+.blur-effect {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.3); 
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px); 
+  
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .main-container {
