@@ -61,40 +61,47 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {!hideNavbar && <Navbar />}
-
-      {/* Background content — will blur when user is not logged in */}
+      <Navbar />
       <div className={!hideNavbar ? "content-wrapper" : ""}>
         <main className="main-container">
-
           <Routes>
             <Route path="/" element={<FrontPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/board/:id" element={<BoardPage />} />
 
-            {/* HOME PAGE LOGIC */}
+            {/* FIXED HOME ROUTE */}
             <Route
               path="/home"
               element={
-                <>
-                  <div className={!user ? "blur-layer" : ""}>
+                <div className="content-wrap">
+                  {user ? (
                     <Home />
-                  </div>
+                  ) : (
+                    <>
+                      {/* ONLY background blur */}
+                      <div className="blur-background"></div>
 
-                  {!user && <GlobalLoginPage />}
-                </>
+                      {/* Clear login popup */}
+                      <GlobalLoginPage />
+                    </>
+                  )}
+                </div>
               }
             />
 
-            {/* Global login page direct route */}
-            <Route path="/globalLoginPage" element={<GlobalLoginPage />} />
-
+            {/* No change here */}
+            <Route
+              path="/globalLoginPage"
+              element={
+                <div className={user ? "content-wrap" : "wrapper"}>
+                  <GlobalLoginPage />
+                </div>
+              }
+            />
           </Routes>
-
         </main>
       </div>
-
       <Footer />
     </div>
   );
