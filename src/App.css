@@ -12,20 +12,7 @@ body {
   color: #333;
   transition: background 0.4s ease, color 0.4s ease;
 }
-/* .content-wrap{
-  max-width: 1300px;
-  margin: 90px auto;
-  padding: 40px 50px;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-  animation: fadeIn 0.4s ease;
-} */
+
 .content-wrapper {
   max-width: 1300px;
   margin: 90px auto;
@@ -40,10 +27,10 @@ body {
   transition: all 0.3s ease;
   animation: fadeIn 0.4s ease;
 }
-/* .wrapper{
+.wrapper{
   filter:blur(3px);
   background:red;
-} */
+}
 
 .main-container {
   background: transparent;
