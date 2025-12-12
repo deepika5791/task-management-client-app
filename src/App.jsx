@@ -28,10 +28,10 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route
               path="/home"
-              element={<div className={user ? "content-wrapper" : "wrapper"}>{user ? <Home /> : <GlobalLoginPage />}</div>}
+              element={<div className={user ?  "wrapper" : "content-wrapper"}>{user ? <Home /> : <GlobalLoginPage />}</div>}
             />
             <Route path="/board/:id" element={<BoardPage />} />
-            <Route path="/globalLoginPage" element={<div className={user ? "content-wrapper" : "wrapper"}><GlobalLoginPage /></div> } />
+            <Route path="/globalLoginPage" element={<div className={user ? "wrapper" : "content-wrapper"}><GlobalLoginPage /></div> } />
           </Routes>
         </main>
       </div>
