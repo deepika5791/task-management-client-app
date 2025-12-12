@@ -34,7 +34,9 @@ const App = () => {
               element={user ? <Home /> : <GlobalLoginPage />}
             />
             <Route path="/board/:id" element={<BoardPage />} />
+            <div className="container">
             <Route path="/globalLoginPage" element={<GlobalLoginPage />} />
+            </div>
           </Routes>
         </main>
       </div>
