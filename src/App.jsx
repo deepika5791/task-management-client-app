@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className="app-container">
       <Navbar />
-      <div className={!hideNavbar ? "content-wrapper" : ""}>
+      {/* <div className={!hideNavbar ? "content-wrapper" : ""}> */}
           <div className={user ?  "wrapper" : "content-wrapper"}>
         <main className="main-container">
           <Routes>
@@ -42,7 +42,7 @@ const App = () => {
           </Routes>
         </main>
         </div>
-      </div>
+      {/* </div> */}
       <Footer />
     </div>
   );
