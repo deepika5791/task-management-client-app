@@ -69,6 +69,7 @@ const App = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
 
+            {/* -------- UPDATED -------- */}
             <Route
               path="/home"
               element={
@@ -77,21 +78,28 @@ const App = () => {
                     <Home />
                   </div>
                 ) : (
-                  <>
-                    <div className="blur-background"></div>
+                  <div className="content-wrapper blur-effect">
                     <GlobalLoginPage />
-                  </>
+                  </div>
                 )
               }
             />
 
             <Route path="/board/:id" element={<BoardPage />} />
+
+            {/* -------- UPDATED -------- */}
             <Route
               path="/globalLoginPage"
               element={
-                <div className={user ? "content-wrapper" : "wrapper"}>
-                  <GlobalLoginPage />
-                </div>
+                user ? (
+                  <div className="content-wrapper">
+                    <GlobalLoginPage />
+                  </div>
+                ) : (
+                  <div className="content-wrapper blur-effect">
+                    <GlobalLoginPage />
+                  </div>
+                )
               }
             />
           </Routes>
