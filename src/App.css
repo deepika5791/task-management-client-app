@@ -50,6 +50,7 @@ body {
   z-index: 999;
 }
 
+
 .wrapper{
   filter:blur(3px);
   background:red;

@@ -66,12 +66,13 @@ const App = () => {
       <div className={!hideNavbar ? "content-wrapper" : ""}>
         <main className="main-container">
           <Routes>
+
             <Route path="/" element={<FrontPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/board/:id" element={<BoardPage />} />
 
-            {/* ----------- FIXED HOME PAGE (BLUR ONLY BACKGROUND) ----------- */}
+            {/* ------ HOME PAGE ------ */}
             <Route
               path="/home"
               element={
@@ -81,25 +82,24 @@ const App = () => {
                   </div>
                 ) : (
                   <>
-                    {/* Blur only background, NOT GlobalLoginPage */}
                     <div className="blur-background"></div>
-
-                    {/* Clear Login Page */}
                     <GlobalLoginPage />
                   </>
                 )
               }
             />
 
-            {/* Global login page route (NO BLUR) */}
+            {/* ------ GLOBAL LOGIN PAGE (always blur background) ------ */}
             <Route
               path="/globalLoginPage"
               element={
-                <div className="content-wrap">
+                <>
+                  <div className="blur-background"></div>
                   <GlobalLoginPage />
-                </div>
+                </>
               }
             />
+
           </Routes>
         </main>
       </div>
