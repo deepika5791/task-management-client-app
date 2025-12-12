@@ -16,7 +16,7 @@ const App = () => {
   const { user } = useContext(AuthContext);
 
   const AuthLayout = ({ user }) => (
-    <div className={user ? "content-wrapper" : "wrapper"}>
+    <div className={user ? "wrapper" : "content-wrapper"}>
       <GlobalLoginPage />
     </div>
   );
