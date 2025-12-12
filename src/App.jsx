@@ -24,7 +24,7 @@ const App = () => {
   return (
     <div className="app-container">
       <Navbar />
-      <div className={!hideNavbar ? "content-wrapper" : ""}>
+      {/* <div className={!hideNavbar ? "content-wrapper" : ""}> */}
         <main className="main-container">
           <Routes>
             <Route path="/" element={<FrontPage />} />
@@ -41,7 +41,7 @@ const App = () => {
             </Route>
           </Routes>
         </main>
-      </div>
+      {/* </div> */}
       <Footer />
     </div>
   );
