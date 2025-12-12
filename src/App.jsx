@@ -69,7 +69,6 @@ const App = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
 
-            {/* -------- UPDATED -------- */}
             <Route
               path="/home"
               element={
@@ -86,8 +85,6 @@ const App = () => {
             />
 
             <Route path="/board/:id" element={<BoardPage />} />
-
-            {/* -------- UPDATED -------- */}
             <Route
               path="/globalLoginPage"
               element={
