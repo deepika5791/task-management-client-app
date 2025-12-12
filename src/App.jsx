@@ -110,6 +110,7 @@
 // };
 
 // export default App;
+
 import React, { useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
@@ -130,14 +131,10 @@ const App = () => {
 
   return (
     <div className="app-container">
+      {/* Navbar stays unblurred */}
       <Navbar />
 
-      {/* WRAP CONTENT SO ONLY THIS AREA CAN BLUR */}
-      <div
-        id="main-content"
-        className={!hideNavbar ? "content-wrapper" : ""}
-        style={{ position: "relative" }}
-      >
+      <div className={!hideNavbar ? "content-wrapper" : ""}>
         <main className="main-container">
           <Routes>
             <Route path="/" element={<FrontPage />} />
@@ -145,30 +142,31 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/board/:id" element={<BoardPage />} />
 
-            {/* ---------------- HOME ROUTE ---------------- */}
+            {/* HOME PAGE */}
             <Route
               path="/home"
               element={
-                user ? (
-                  <Home />
-                ) : (
-                  <>
-                    {/* BLUR ONLY MAIN-CONTENT */}
-                    <div className="blur-background"></div>
-                    <GlobalLoginPage />
-                  </>
-                )
+                <div className="page-container">
+                  {user ? (
+                    <Home />
+                  ) : (
+                    <>
+                      <div className="blur-background"></div>
+                      <GlobalLoginPage />
+                    </>
+                  )}
+                </div>
               }
             />
 
-            {/* ---------------- GLOBAL LOGIN ROUTE ---------------- */}
+            {/* GLOBAL LOGIN PAGE */}
             <Route
               path="/globalLoginPage"
               element={
-                <>
+                <div className="page-container">
                   <div className="blur-background"></div>
                   <GlobalLoginPage />
-                </>
+                </div>
               }
             />
           </Routes>
