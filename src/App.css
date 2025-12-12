@@ -33,6 +33,7 @@ body {
 } */
 .blur-effect {
   position: relative;
+  filter: blur(8px);
 }
 
 .blur-effect::before {
