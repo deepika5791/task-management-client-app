@@ -29,7 +29,7 @@ body {
 }
 .wrapper{
   filter:blur(3px);
-  background:"red";
+  background:red;
 }
 
 .main-container {
