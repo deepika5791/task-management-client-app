@@ -28,7 +28,7 @@ body {
   animation: fadeIn 0.4s ease;
 }
 .wrapper{
-  backdrop-filter: blur(10px);
+  filter:blur(3px);
   background:red;
 }
 
