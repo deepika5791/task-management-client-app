@@ -39,10 +39,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  /* backdrop-filter: blur(6px); */
-  filter: blur(8px);
-  /* -webkit-backdrop-filter: blur(6px); */
-  background-color: red;
+  filter: blur(18px);
   z-index: 1;
 }
 
