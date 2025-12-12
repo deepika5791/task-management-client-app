@@ -22,8 +22,8 @@ const App = () => {
   return (
     <div className="app-container">
       <Navbar />
-      {/* <div className={!hideNavbar ? "content-wrapper" : ""}> */}
-          <div className={user ?  "content-wrapper" : "wrapper"} >
+      <div className={!hideNavbar ? "content-wrapper" : ""}>
+      
         <main className="main-container">
           <Routes>
             <Route
@@ -37,12 +37,12 @@ const App = () => {
               element={user ? <Home /> : <GlobalLoginPage />}
             />
             <Route path="/board/:id" element={<BoardPage />} />
-            <Route path="/globalLoginPage" element={ <GlobalLoginPage />}/>
+            <Route path="/globalLoginPage" element={ <GlobalLoginPage />} className={user ? "wrapper" : "content-wrapper"}/>
          
           </Routes>
         </main>
-        </div>
-      {/* </div> */}
+
+      </div>
       <Footer />
     </div>
   );
