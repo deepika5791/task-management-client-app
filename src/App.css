@@ -41,7 +41,7 @@ body {
   inset: 0;
   /* backdrop-filter: blur(6px); */
   filter: blur(3px);
-  -webkit-backdrop-filter: blur(6px);
+  /* -webkit-backdrop-filter: blur(6px); */
   z-index: 1;
 }
 
