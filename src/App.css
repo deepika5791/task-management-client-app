@@ -33,7 +33,6 @@ body {
 } */
 .blur-effect {
   position: relative;
-  filter: blur(8px);
 }
 
 .blur-effect::before {
@@ -41,7 +40,7 @@ body {
   position: absolute;
   inset: 0;
   /* backdrop-filter: blur(6px); */
-  filter: blur(3px);
+  filter: blur(8px);
   /* -webkit-backdrop-filter: blur(6px); */
   background-color: red;
   z-index: 1;
