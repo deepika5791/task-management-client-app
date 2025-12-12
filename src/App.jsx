@@ -23,7 +23,7 @@ const App = () => {
     <div className="app-container">
       <Navbar />
       <div className={!hideNavbar ? "content-wrapper" : ""}>
-          <div className={user ? "content-wrapper" : "wrapper"}>
+          <div className={user ?  "wrapper" : "content-wrapper"}>
         <main className="main-container">
           <Routes>
             <Route
