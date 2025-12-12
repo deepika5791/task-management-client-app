@@ -28,7 +28,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route
               path="/home"
-              element={user ? <Home /> : <GlobalLoginPage />}
+              element={<div className={user ? "content-wrapper" : "wrapper"}>{user ? <Home /> : <GlobalLoginPage />}</div>}
             />
             <Route path="/board/:id" element={<BoardPage />} />
             <Route path="/globalLoginPage" element={<div className={user ? "content-wrapper" : "wrapper"}><GlobalLoginPage /></div> } />
