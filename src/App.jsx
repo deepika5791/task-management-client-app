@@ -87,13 +87,17 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {/* Navbar stays on top and never blurred */}
+      {/* Navbar always on top */}
       <Navbar />
 
       <div className={!hideNavbar ? "content-wrapper" : ""}>
+        {/* Blur only the content area when not logged in */}
+        {!user && location.pathname === "/home" && (
+          <div className="blur-overlay"></div>
+        )}
+
         <main className="main-container">
           <Routes>
-
             <Route path="/" element={<FrontPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
@@ -107,24 +111,15 @@ const App = () => {
                     <Home />
                   </div>
                 ) : (
-                  <>
-                    <div className="blur-background"></div>
-                    <GlobalLoginPage />
-                  </>
+                  <GlobalLoginPage />
                 )
               }
             />
 
             <Route
               path="/globalLoginPage"
-              element={
-                <>
-                  <div className="blur-background"></div>
-                  <GlobalLoginPage />
-                </>
-              }
+              element={<GlobalLoginPage />}
             />
-
           </Routes>
         </main>
       </div>

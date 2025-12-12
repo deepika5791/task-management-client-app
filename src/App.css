@@ -120,54 +120,23 @@ body {
   min-height: 75vh;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
-  animation: fadeIn 0.4s ease;
-  position: relative;
-  z-index: 2; /* ensures content sits above blur background */
+  position: relative; /* needed for blur overlay */
+  overflow: hidden;
 }
 
-.blur-background {
-  position: fixed;
+.blur-overlay {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   backdrop-filter: blur(6px);
-  z-index: 1; /* behind navbar but above content */
-}
-
-.not-logged-page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-/* Removed blur from navbar by not applying filter here */
-.wrapper {
-  background: red;
-  /* filter removed */
+  z-index: 1; /* behind content elements if needed */
 }
 
 .main-container {
-  background: transparent;
-  min-height: 100%;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  position: relative;
+  z-index: 2; /* content above blur */
 }
 
 h1 {
@@ -190,4 +159,15 @@ button,
 input,
 textarea {
   font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
