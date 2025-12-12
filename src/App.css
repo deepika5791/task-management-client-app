@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -73,6 +73,113 @@ body {
   }
 }
 
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+p,
+button,
+input,
+textarea {
+  font-size: 1rem;
+} */
+/* Reset & font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background: linear-gradient(135deg, #eef1f5, #dce3ea);
+  min-height: 100vh;
+  color: #333;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Wrapper for main content */
+.content-wrapper {
+  max-width: 1300px;
+  margin: 90px auto;
+  padding: 40px 50px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Blur background (only behind content) */
+.blur-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(6px);
+  z-index: 0; /* behind Navbar */
+}
+
+/* Navbar always on top */
+.navbar {
+  position: relative;
+  z-index: 10;
+}
+
+/* Not logged-in page wrapper (centered login prompt) */
+.not-logged-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Optional wrapper blur (if you want inside certain divs) */
+.wrapper {
+  filter: blur(3px);
+  background: red;
+}
+
+.main-container {
+  background: transparent;
+  min-height: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typography */
 h1 {
   font-size: 2rem;
   font-weight: 600;
