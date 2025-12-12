@@ -22,17 +22,12 @@ body {
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   min-height: 75vh;
-  
   display: flex;
   flex-direction: column;
-
   transition: all 0.3s ease;
   animation: fadeIn 0.4s ease;
 }
-.container{
-  filter: blur(3px);
 
-}
 
 .main-container {
   background: transparent;
