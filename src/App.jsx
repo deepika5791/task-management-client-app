@@ -15,7 +15,7 @@ const App = () => {
   const hideNavbar = ["/login", "/signup"].includes(location.pathname);
   const { user } = useContext(AuthContext);
 
-
+  
 
   return (
     <div className="app-container">
