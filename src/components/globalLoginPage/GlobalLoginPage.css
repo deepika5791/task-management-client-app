@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  filter: blur(10px);
 }
 
 .not-logged-box {
@@ -11,7 +12,6 @@
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  filter:none;
 }
 
 .not-logged-box h2 {
