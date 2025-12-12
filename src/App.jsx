@@ -15,16 +15,12 @@ const App = () => {
   const hideNavbar = ["/login", "/signup"].includes(location.pathname);
   const { user } = useContext(AuthContext);
 
-  const AuthLayout = ({ user }) => (
-    <div className={user ? "wrapper" : "content-wrapper"}>
-      <GlobalLoginPage />
-    </div>
-  );
+
 
   return (
     <div className="app-container">
       <Navbar />
-      {/* <div className={!hideNavbar ? "content-wrapper" : ""}> */}
+      <div className={!hideNavbar ? "content-wrapper" : ""}>
         <main className="main-container">
           <Routes>
             <Route path="/" element={<FrontPage />} />
@@ -35,13 +31,10 @@ const App = () => {
               element={user ? <Home /> : <GlobalLoginPage />}
             />
             <Route path="/board/:id" element={<BoardPage />} />
-            {/* <Route path="/globalLoginPage" element={ <GlobalLoginPage />} className={user ? "content-wrapper" : "wrapper"}/> */}
-            <Route element={<AuthLayout user={user} />}>
-              <Route path="/globalLoginPage" element={<GlobalLoginPage />} />
-            </Route>
+            <Route path="/globalLoginPage" element={<div className={user ? "content-wrapper" : "wrapper"}><GlobalLoginPage /></div> } />
           </Routes>
         </main>
-      {/* </div> */}
+      </div>
       <Footer />
     </div>
   );
