@@ -163,19 +163,16 @@ const Home = () => {
       </div>
 
       <form className="new-board-form" onSubmit={createBoard}>
-        <div>
-          <input
-            type="text"
-            placeholder="Create a new board (e.g. Project Alpha)"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-              setFormError("");
-            }}
-          />
-
-          {formError && <p className="input-error">{formError}</p>}
-        </div>
+        <input
+          type="text"
+          placeholder="Create a new board (e.g. Project Alpha)"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+            setFormError("");
+          }}
+        />
+        <div>{formError && <p className="input-error">{formError}</p>}</div>
         <button type="submit" className="primary">
           Add Board
         </button>
