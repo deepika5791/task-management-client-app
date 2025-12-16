@@ -163,7 +163,7 @@ const Home = () => {
       </div>
 
       <form className="new-board-form" onSubmit={createBoard}>
-        <div style={{ flex: 1 }}>
+       
           <input
             type="text"
             placeholder="Create a new board (e.g. Project Alpha)"
@@ -174,7 +174,7 @@ const Home = () => {
             }}
           />
           {formError && <p className="input-error">{formError}</p>}
-        </div>
+        
         <button type="submit" className="primary">
           Add Board
         </button>
