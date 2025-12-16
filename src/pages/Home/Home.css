@@ -24,14 +24,21 @@
 }
 .new-board-form {
   display: flex;
+  align-items: flex-start;
   gap: 10px;
   margin: 14px 0 24px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .new-board-form input {
   flex: 1;
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #e6eefc;
+  box-sizing: border-box;
 }
 .input-error {
   color: #dc3545;
