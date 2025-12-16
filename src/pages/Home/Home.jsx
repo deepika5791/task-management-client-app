@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../../api";
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Home.css";
 import Board from "../../components/Board/Board";
 import Skeleton from "react-loading-skeleton";
@@ -15,6 +15,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [notification, setNotification] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(null);
+  const [formError, setFormError] = useState("");
 
   const showNotification = (message, type = "success") => {
     setNotification({ message, type });
@@ -40,13 +41,13 @@ const Home = () => {
     e.preventDefault();
     const trimmedName = name.trim();
     if (!trimmedName) {
-      showNotification("Board name cannot be empty", "error");
+      setFormError("Board name cannot be empty");
       return;
     }
     if (
       boards.some((b) => b.name.toLowerCase() === trimmedName.toLowerCase())
     ) {
-      showNotification("Board with this name already exists", "error");
+      setFormError("Board with this name already exists");
       return;
     }
     try {
@@ -62,7 +63,7 @@ const Home = () => {
       showNotification("Board created successfully", "success");
     } catch (err) {
       console.error(err);
-      // showNotification("First loginIn to a page", "error");
+      setFormError("Failed to create board");
     }
   };
 
@@ -128,10 +129,6 @@ const Home = () => {
         <div className={`notification ${notification.type}`}>
           {notification.message}
         </div>
-       
-      
-       
-      
       )}
 
       {confirmDelete && (
@@ -166,12 +163,18 @@ const Home = () => {
       </div>
 
       <form className="new-board-form" onSubmit={createBoard}>
-        <input
-          type="text"
-          placeholder="Create a new board (e.g. Project Alpha)"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <div style={{ flex: 1 }}>
+          <input
+            type="text"
+            placeholder="Create a new board (e.g. Project Alpha)"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+              setFormError("");
+            }}
+          />
+          {formError && <p className="input-error">{formError}</p>}
+        </div>
         <button type="submit" className="primary">
           Add Board
         </button>
@@ -213,7 +216,6 @@ const Home = () => {
                     </div>
                   </div>
                 ) : (
-   
                   <Board
                     board={board}
                     onDelete={() => requestDeleteBoard(board._id)}

@@ -33,6 +33,12 @@
   border-radius: 10px;
   border: 1px solid #e6eefc;
 }
+.input-error {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
 button.primary {
   background: #6c63ff;
   color: white;
@@ -103,7 +109,7 @@ button.primary {
   100% {
     opacity: 1;
     transform: translateY(0);
-  } 
+  }
 }
 
 .confirm-overlay {
@@ -167,11 +173,11 @@ button.primary {
 }
 
 .notification.success {
-  background-color: #28a745; 
+  background-color: #28a745;
 }
 
 .notification.error {
-  background-color: #dc3545; 
+  background-color: #dc3545;
 }
 
 @keyframes slideIn {
