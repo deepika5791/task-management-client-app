@@ -1,0 +1,119 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background: transparent;
+  gap: 12px;
+  z-index: 800;
+  padding-left: 140px;
+  padding-right: 140px;
+  background-color: #1d4e85;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.brand a{
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+.brand .accent {
+  color: #6c63ff;
+}
+.workspace-switch .link {
+  margin-left: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #526a86;
+  font-weight: 600;
+}
+.workspace-switch .link:hover {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.auth-links .link {
+  margin-left: 8px;
+  color: #0b233f;
+  text-decoration: none;
+  font-weight: 600;
+}
+.auth-links .primary {
+  background: #6c63ff;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.profile-wrap {
+  position: relative;
+}
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #e9eefc;
+  color: #243447;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.username {
+  font-weight: 600;
+  color: white;
+}
+.profile-menu {
+  position: absolute;
+  right: 0;
+  top: 56px;
+  min-width: 190px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(2, 6, 23, 0.12);
+  padding: 10px;
+  z-index: 900;
+}
+.profile-menu .menu-item {
+  padding: 8px;
+  color: #213449;
+}
+.profile-menu .small {
+  font-size: 13px;
+  color: #66788a;
+}
+.menu-divider {
+  height: 1px;
+  background: #eef2f6;
+  margin: 8px 0;
+}
+.menu-item.danger {
+  background: #ffebee;
+  color: #c62828;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.dark-mode .profile-menu {
+  background: #0f1724;
+  color: #dbeafe;
+  box-shadow: none;
+}

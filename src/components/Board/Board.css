@@ -1,0 +1,117 @@
+.board-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  width: 600px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 40px auto;
+  border: 1px solid #eef1f6;
+}
+
+.board-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.board-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 10px 0;
+}
+
+.board-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b233f;
+  margin: 8px 0 4px;
+  text-align: center;
+}
+
+.board-link span {
+  display: block;
+  font-size: 13px;
+  color: #7a8ba0;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.board-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn.edit {
+  background: #fff7e6;
+  color: #a56b00;
+}
+
+.btn.del {
+  background: #ffeef0;
+  color: #c53030;
+}
+
+
+.skeleton-card {
+  background: #f1f1f1;
+  border-radius: 16px;
+  padding: 20px;
+  width: 600px;
+  min-height: 200px;
+  margin: 40px auto;
+  animation: pulse 1.4s infinite ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.skeleton-title {
+  height: 28px;
+  width: 60%;
+  background: #e0e0e0;
+  border-radius: 6px;
+  margin: 20px auto;
+}
+
+.skeleton-btn-area {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.skeleton-btn {
+  height: 36px;
+  width: 80px;
+  background: #d9d9d9;
+  border-radius: 8px;
+}
+
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

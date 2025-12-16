@@ -1,0 +1,260 @@
+.board-page {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  animation: fadeSlideIn 0.6s ease-in-out;
+}
+
+.board-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 12px;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.09);
+  animation: fadeSlideIn 0.5s ease-in-out;
+}
+
+.board-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.small-search {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d6e0f5;
+  width: 400px;
+  height: 46px;
+  transition: all 0.3s ease;
+}
+.small-search:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.small-select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d6e0f5;
+  width: 200px;
+  height: 46px;
+  transition: all 0.3s ease;
+}
+.small-select:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.progress-pill {
+  background: #f1f6ff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #334;
+  font-size: 14px;
+}
+
+.task-creator {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 40px 0 80px 0;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.09);
+  animation: fadeSlideIn 0.6s ease-in-out;
+}
+
+.task-creator input[type="text"],
+.task-creator select,
+.task-creator input[type="date"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dce3f5;
+  min-width: 220px;
+  height: 46px;
+  transition: all 0.3s ease;
+}
+.task-creator input:focus,
+.task-creator select:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.task-creator .primary {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 46px;
+  width: 160px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.task-creator .primary:hover {
+  background: #5952d4;
+}
+
+.kanban {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.column {
+  background: #f9faff;
+  padding: 16px;
+  border-radius: 12px;
+  width: 100%;
+  min-width: 280px;
+  max-width: 360px;
+  box-shadow: 0 6px 18px rgba(11, 23, 44, 0.09);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+.column:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.column:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.column:hover {
+  transform: translateY(-5px);
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.column-header {
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2b2b4e;
+}
+
+.count {
+  background: #e5edff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #223;
+}
+
+.column-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 120px;
+}
+
+.edit-card input,
+.edit-card select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #eaf0ff;
+  margin-bottom: 8px;
+}
+.edit-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.error-message {
+  color: #ff4d4f;
+  background: #fff1f0;
+  border: 1px solid #ffa39e;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.skeleton-col {
+  background: #f1f1f1;
+  border-radius: 12px;
+  padding: 16px;
+  width: 100%;
+  min-width: 280px;
+  max-width: 360px;
+  animation: pulse 1.3s infinite ease-in-out;
+}
+
+.skeleton-col-header {
+  height: 20px;
+  width: 50%;
+  background: #ddd;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.skeleton-task {
+  height: 60px;
+  background: #e2e2e2;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .kanban {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .small-search {
+    width: 100%;
+  }
+
+  .task-creator {
+    flex-direction: column;
+  }
+}
