@@ -16,7 +16,7 @@
   align-items: center;
   gap: 18px;
 }
-.brand a{
+.brand a {
   font-weight: 700;
   font-size: 20px;
   color: white;
@@ -48,8 +48,15 @@
   text-decoration: none;
   font-weight: 600;
 }
+.auth-links .link:focus {
+  background-color: #6c63ff;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
 .auth-links .primary {
   background: #6c63ff;
+
   color: white;
   padding: 6px 10px;
   border-radius: 8px;
