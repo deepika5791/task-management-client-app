@@ -63,18 +63,18 @@
   font-weight: 600;
 }
 .btn.edit {
-  background-color: rgb(10, 10, 10);
+  background-color: rgb(83, 82, 82);
   color: white;
 }
 
 .btn.edit:hover {
-  background-color: gray;
+  background-color: black;
 }
 .btn.del {
-  background-color: #c53030;
+  background-color: #c53030 ;
   color: white;
 }
 
 .btn.del:hover {
-  background-color: rgb(141, 51, 51);
+  background-color: red;
 }
