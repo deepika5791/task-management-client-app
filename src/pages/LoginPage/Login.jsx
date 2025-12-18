@@ -6,13 +6,16 @@ import "./Login.css";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
-  const [error, setError] = useState(""); 
+  const [error, setError] = useState("");
   const { loginUser } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleform = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     try {
       const res = await API.post("/auth/login", form);
@@ -24,6 +27,8 @@ const Login = () => {
           ? "User not found. Please sign up first."
           : "Invalid email or password."
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -58,8 +63,8 @@ const Login = () => {
               onChange={(e) => setForm({ ...form, password: e.target.value })}
             />
 
-            <button className="primary" type="submit">
-              Login
+            <button className="primary" type="submit" disabled={loading}>
+              {loading ? <span className="btn-spinner"></span> : "Login"}
             </button>
           </form>
 
