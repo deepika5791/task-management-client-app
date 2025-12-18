@@ -48,19 +48,25 @@
   text-decoration: none;
   font-weight: 600;
 }
-.auth-links .link:focus {
+.auth-links .link:hover{
   background-color: #6c63ff;
   color: white;
   padding: 6px 10px;
   border-radius: 8px;
 }
 .auth-links .primary {
-  background: #6c63ff;
-
+  margin-left: 8px;
+  color: #0b233f;
+  text-decoration: none;
+  font-weight: 600;
+}
+.auth-links .primary:hover{
+ background-color: #6c63ff;
   color: white;
   padding: 6px 10px;
   border-radius: 8px;
 }
+
 .profile-wrap {
   position: relative;
 }
