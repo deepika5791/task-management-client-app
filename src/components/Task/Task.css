@@ -35,7 +35,6 @@
   border-radius: 8px;
   font-weight: 700;
   font-size: 16px;
-
 }
 .task-desc {
   color: #50607a;
@@ -69,7 +68,7 @@
 }
 
 .btn.edit:hover {
-  background-color:rgba(11, 23, 44, 0.04) ;
+  background-color: gray;
 }
 .btn.del {
   background-color: #c53030;
