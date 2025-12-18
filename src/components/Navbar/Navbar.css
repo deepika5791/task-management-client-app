@@ -24,7 +24,15 @@
 }
 .brand .accent {
   color: #6c63ff;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+.brand  .accent:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
 .workspace-switch .link {
   margin-left: 6px;
   padding: 8px 12px;
