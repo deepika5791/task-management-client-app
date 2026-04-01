@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useReducer } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import API from "../../api";
 import { AuthContext } from "../../context/AuthProvider";
@@ -9,15 +9,17 @@ const Signup = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { loginUser } = useContext(AuthContext);
-
+  const username = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
   const handleform = async (e) => {
     e.preventDefault();
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(form.email)) {
-    setError("Invalid email format");
-    return;
-  }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setError("Invalid email format");
+      return;
+    }
     try {
       const res = await API.post("/auth/signup", form);
       loginUser(res.data.user, res.data.token);
@@ -26,6 +28,13 @@ const Signup = () => {
       setError("user already exist");
     }
   };
+
+  const changeInputFocus = (event , nextInput) => {
+    if(event.key === "ENTER"){
+      event.preventDefault()
+      nextInput.current.focus()
+    }
+  }
 
   return (
     <div className="auth-container">
@@ -41,12 +50,16 @@ const Signup = () => {
 
           <form onSubmit={handleform} className="auth-form">
             <input
+              ref={username}
+              onKeyDown={changeInputFocus((event) => (event, email))}
               type="text"
               placeholder="Full name"
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               value={form.name}
             />
             <input
+              ref={username}
+              onKeyDown={changeInputFocus((event) => (event, password))}
               type="email"
               placeholder="Email address"
               onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -65,7 +78,11 @@ const Signup = () => {
               </div>
             )}
 
-            <button className="primary" type="submit" disabled={!form.email || !form.password}>
+            <button
+              className="primary"
+              type="submit"
+              disabled={!form.email || !form.password}
+            >
               Create account
             </button>
           </form>
